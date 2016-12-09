@@ -1,0 +1,33 @@
+default:
+  suites:
+    default:
+      contexts:
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+        - FeatureContext:
+            parameters:
+              screen_shots_path: %paths.base%/screenshot
+  extensions:
+    Behat\MinkExtension:
+      goutte: ~
+      selenium2: ~
+      base_url: http://ilocal.sealedair.me
+      files_path: %paths.base%/images
+    Drupal\DrupalExtension:
+      blackbox: ~
+      api_driver: 'drush'
+      drush:
+        binary: '%paths.base%/../vendor/bin/drush'
+        alias: 'local'
+      region_map:
+        header: "header"
+        navigation: "#navigation"
+        content: "#content"
+        sidebar_first: ".sidebar_first"
+        footer: "footer"
+      selectors:
+        message_selector: '.alert'
+        error_message_selector: '.alert-danger'
+        success_message_selector: '.alert-status'

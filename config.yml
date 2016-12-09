@@ -20,7 +20,7 @@ tools:
     - "!**/*.views_default.inc"
   behat:
     enable: true
-    tags: '@api'
+    tags: '@dev'
   css:
     enable: true
     include:

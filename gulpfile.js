@@ -6,6 +6,7 @@ var options = require('minimist')(process.argv.slice(2));
 var phpcs = require('gulp-phpcs');
 var guppy = require('git-guppy')(gulp);
 var YAML = require('yamljs');
+var shell = require('gulp-shell');
 // Get the configuration file
 var config = YAML.load('./config.yml');
 var drupal_root = config.drupal_root;
@@ -113,6 +114,20 @@ if (tools.phpcs && tools.phpcs.enable) {
   // Add to gulp tasks
   gulp_default_tasks.push('phpcs');
   gulp_commit_tasks.push('phpcs');
+}
+
+if (tools.behat && tools.behat.enable) {
+  if (!tools.behat.tags || !tools.behat.tags.length) {
+    return;
+  }
+
+  // Execute behat cli.
+  gulp.task('behat', shell.task([
+    './vendor/bin/behat --config=./tests/behat.yaml --tags ' + tools.behat.tags
+  ]));
+  // Add to gulp tasks
+  gulp_default_tasks.push('behat');
+  gulp_commit_tasks.push('behat');
 }
 
 // Runs on git pre-commit.

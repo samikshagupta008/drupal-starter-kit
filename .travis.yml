@@ -23,7 +23,7 @@ before_install:
   - php -r "unlink('composer-setup.php');"
   - sudo mv composer.phar /usr/local/bin/composer
   - composer
-  - cp -r tests/test docroot/sites/all/modules/custom/
+  - cp -r tests-starter-kit/test docroot/sites/all/modules/custom/
 
 install:
   - npm install gulp -g

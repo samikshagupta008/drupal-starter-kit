@@ -7,6 +7,6 @@
  */
 
 $aliases['local'] = array(
-  'root' => '/var/www/drupalvm/sealedairintra/docroot',
-  'uri' => 'ilocal.sealedair.me',
+  'root' => '/var/www/html/myproject',
+  'uri' => 'myproject.me',
 );

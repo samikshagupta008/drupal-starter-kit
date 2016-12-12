@@ -36,34 +36,6 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   }
 
   /**
-   * @Then /^I should be on sso$/
-   */
-  public function iShouldBeOnSso() {
-    $url = $this->getSession()->getCurrentUrl();
-    print $url;
-    if (strpos($url, 'sso.sealedair.com')) {
-      print 'LIVE SSO';
-    }
-    else {
-      throw new Exception("Not running on SSO correctly");
-    }
-  }
-
-  /**
-   * @Then /^I should be on ssotest$/
-   */
-  public function iShouldBeOnSsotest() {
-    $url = $this->getSession()->getCurrentUrl();
-    print $url;
-    if (strpos($url, 'ssotest.sealedair.com')) {
-      print 'TEST SSO';
-    }
-    else {
-      throw new Exception("Not running on SSOTEST correctly");
-    }
-  }
-
-  /**
    * @Then take desktop screenshot prefixed :prefix
    */
   public function takeDesktopScreenshotPrefixed($prefix) {

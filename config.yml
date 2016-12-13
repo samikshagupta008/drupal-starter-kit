@@ -18,6 +18,9 @@ tools:
     - "!**/*.pages_default.inc"
     - "!**/*.strongarm.inc"
     - "!**/*.views_default.inc"
+  behat:
+    enable: true
+    tags: '@dev'
   css:
     enable: true
     include:

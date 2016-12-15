@@ -9,5 +9,5 @@ Scenario: Check Site Database and Bootstrap
 
 Scenario: Check site running correct themes
   Given I run drush status
-  Then drush output should contain ':  sealedairintra'
+  Then drush output should contain ':  mysite'
   Then drush output should contain ':  seven'

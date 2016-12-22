@@ -1,4 +1,4 @@
-# Core PHP Tests
+# Core Behat Tests
 
 This project is built to assist with the testing of PHP projects. It includes.
 
